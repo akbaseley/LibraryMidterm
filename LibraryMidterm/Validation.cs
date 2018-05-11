@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryMidterm
 {
+ 
     class Validation
     {
         public static int UserSelection(string message, int min, int max)
