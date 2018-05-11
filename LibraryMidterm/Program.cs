@@ -34,7 +34,8 @@ namespace LibraryMidterm
 
                     for (int i = 0; i < Library.Count; i++)
                     {
-                        Console.WriteLine($"{Library[i].Title,-50}, {Library[i].Author,-15}, {Library[i].DueDate,-12}, {Library[i].Status,-10}");
+ 
+                        Console.WriteLine($"{Library[i].Title,50}, {Library[i].Author,15}, {Library[i].DueDate,12}, {Library[i].Stat,10}");
                     }
                 }
                 else if (UserTask == 2)
@@ -54,8 +55,24 @@ namespace LibraryMidterm
                 }
                 else if (UserTask == 5)
                 {
-                    //5. Return book  - ????
-                    //change status
+                    int number = Library.Count();
+                    ////indexing number user puts in
+                    int bookSelection = Validation.GetIndex("What book do you want to return?", number);
+                    Console.WriteLine($"{bookSelection + 1,-50}{Library[bookSelection].Stat,-15}");
+                    string response = Validation.UserContinue("Would you like to return a book?");
+                    ////changes status
+                    if(response == "y")
+                    {
+                        Library[bookSelection].Stat = (Status)1;
+                    }
+                    else
+                    {
+                        Library[bookSelection].Stat = (Status)0;
+                    }
+
+                    StreamWriter edit = new StreamWriter("../../BookList.txt");
+                    edit.WriteLine(Library[bookSelection].Stat);
+                    edit.Close();
 
                 }
 
