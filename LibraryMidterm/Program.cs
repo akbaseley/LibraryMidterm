@@ -30,11 +30,11 @@ namespace LibraryMidterm
                 if (UserTask == 1)
                 {
                     //1. List Books - Tim & Anna
-                    Console.WriteLine($"{"Title",50}, {"Author",15}, {"Duedate",12}, {"Status",10}");
+                    Console.WriteLine($"{"Title",-50}, {"Author",-15}, {"Duedate",-12}, {"Status",-10}");
 
                     for (int i = 0; i < Library.Count; i++)
                     {
-                        Console.WriteLine($"{Library[i].Title,50}, {Library[i].Author,15}, {Library[i].DueDate,12}, {Library[i].Status,10}");
+                        Console.WriteLine($"{Library[i].Title,-50}, {Library[i].Author,-15}, {Library[i].DueDate,-12}, {Library[i].Status,-10}");
                     }
                 }
                 else if (UserTask == 2)

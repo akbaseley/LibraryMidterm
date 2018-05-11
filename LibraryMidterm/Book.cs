@@ -39,7 +39,7 @@ namespace LibraryMidterm
             Title = "";
             Author = "";
             Status = "";
-            DueDate = new DateTime(01 / 01 / 2000);
+            DueDate = new DateTime(01/01/2000);
         }
         public Book(string t, string a, DateTime d, string s)
         {
