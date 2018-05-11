@@ -39,7 +39,7 @@ namespace LibraryMidterm
                 }
                 else if (UserTask == 2)
                 {
-                    
+                    SearchBy.AuthorSearch(Library);  
                     //2. Search for author - Toni & Jason
                 }
                 else if (UserTask == 3)
