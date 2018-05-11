@@ -14,10 +14,10 @@ namespace LibraryMidterm
         {
             List<Book> Library = new List<Book>();
 
-            StreamReader reader = new StreamReader("../BookList.txt");
+            StreamReader reader = new StreamReader("../../BookList.txt");
             string line = reader.ReadLine();
 
-            while (line != null)
+            while (String.IsNullOrEmpty(line))
             {
                 string[] words = line.Split(',');
                 Library.Add(new Book(words[0], words[1], DateTime.Parse(words[2]), words[3]));
