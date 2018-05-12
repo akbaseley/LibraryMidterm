@@ -20,7 +20,7 @@ namespace LibraryMidterm
             while (!String.IsNullOrEmpty(line))
             {
                 string[] words = line.Split(',');
-                Library.Add(new Book(words[0], words[1], DateTime.Parse(words[2]), words[3]));
+                Library.Add(new Book(words[0], words[1], DateTime.Parse(words[2]), ((Status)Enum.Parse(typeof(Status), words[3]))));
                 line = reader.ReadLine();
             }
             reader.Close();
