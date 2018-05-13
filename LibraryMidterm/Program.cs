@@ -16,6 +16,7 @@ namespace LibraryMidterm
             //Text file to list
 
             List<Book> Library = Methods.ReadFile();
+            int number = Library.Count();
 
             bool KeepGoing = true;
             while (KeepGoing)
@@ -30,12 +31,12 @@ namespace LibraryMidterm
                 if (UserTask == 1)
                 {
                     //1. List Books - Tim & Anna
-                    Console.WriteLine($"{"Title",-50}, {"Author",-15}, {"Duedate",-12}, {"Status",-10}");
+                    Console.WriteLine($"{"Book No."} {"Title",-50} {"Author",-15} {"Duedate",-12} {"Status",-10}");
 
-                    for (int i = 0; i < Library.Count; i++)
+                    for (int i = 0; i < number; i++)
                     {
  
-                        Console.WriteLine($"{Library[i].Title,50}, {Library[i].Author,15}, {Library[i].DueDate,12}, {Library[i].Stat,10}");
+                        Console.WriteLine($"{i+1}{Library[i].Title,50} {Library[i].Author,15} {Library[i].DueDate,12} {Library[i].Stat,10}");
                     }
                 }
                 else if (UserTask == 2)
@@ -49,17 +50,55 @@ namespace LibraryMidterm
                 }
                 else if (UserTask == 4)
                 {
-                    //4. Select book to check out - ????
-                    //a. Book is not available
+                    bool ChoooseABook = true;
+
+                    while(ChoooseABook)
+                    {
+                        //4. Select book to check out 
+                        int bookSelection = Validation.GetIndex("Which book would you like to check out?", number);
+                        //a. Book is not available
+                        if (Library[bookSelection].Stat == Status.CheckedOut)
+                        {
+                            string BookUnavailable = Validation.UserContinue("I'm sorry.  That book is not available.  Would you like to choose another book? y/n");
+
+                            if (BookUnavailable == "n")
+                            {
+                                Console.WriteLine("Okay!");
+                                ChoooseABook = false;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"{Library[bookSelection +1]} {Library[bookSelection].Title} {Library[bookSelection].Author}");
+                            string CheckOutBook = Validation.UserContinue("Is this the book you would like to check out? y/n");
+
+                            if (CheckOutBook == "y")
+                            {
+                                Library[bookSelection].Stat = (Status)0;
+                                Library[bookSelection].DueDate = DateTime.Today.AddDays(14);
+                                Console.WriteLine($"{Library[bookSelection].Title} is due {Library[bookSelection].DueDate}.");
+
+                                StreamWriter edit = new StreamWriter("../../BookList.txt", true);
+                                edit.WriteLine(Library[bookSelection].DueDate);
+                                edit.WriteLine(Library[bookSelection].Stat);
+                                edit.Close();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Okay!");
+                                ChoooseABook = false;
+                            }                          
+                        }
+                    }
+
                     //b. change status & set due-date
                 }
                 else if (UserTask == 5)
                 {
-                    int number = Library.Count();
                     ////indexing number user puts in
                     int bookSelection = Validation.GetIndex("What book do you want to return?", number);
-                    Console.WriteLine($"{bookSelection + 1,-50}{Library[bookSelection].Stat,-15}");
-                    string response = Validation.UserContinue("Would you like to return a book?");
+                    Console.WriteLine($"{bookSelection + 1}  {Library[bookSelection].Title,-15}");
+                    string response = Validation.UserContinue("Would you like to return this book?");
                     ////changes status
                     if(response == "y")
                     {
