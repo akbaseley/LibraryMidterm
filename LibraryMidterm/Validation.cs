@@ -34,5 +34,16 @@ namespace LibraryMidterm
             }
             return Response;
         }
+        public static int GetIndex(string message, int number)
+        {
+            Console.WriteLine(message);
+            int bookReturn = int.Parse(Console.ReadLine());
+            while (bookReturn < 1 || bookReturn > number )
+            {
+                Console.WriteLine("Invalid Input, " + message);
+            }
+            return bookReturn - 1;
+                
+        }
     }
 }

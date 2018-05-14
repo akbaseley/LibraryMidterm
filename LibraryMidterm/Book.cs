@@ -11,7 +11,7 @@ namespace LibraryMidterm
         private string title;
         private string author;
         private DateTime dueDate;
-        private string status;
+        private Status stat;
 
         public string Title
         {
@@ -28,25 +28,25 @@ namespace LibraryMidterm
             set { dueDate = value; }
             get { return dueDate; }
         }
-        public string Status
+        ////changed status to enum
+        public Status Stat
         {
-            set { status = value; }
-            get { return status; }
+            set { stat = value; }
+            get { return stat; }
         }
 
         public Book()
         {
-            Title = "";
-            Author = "";
-            Status = "";
+            
             DueDate = new DateTime(01 / 01 / 2000);
+
         }
-        public Book(string t, string a, DateTime d, string s)
+        public Book(string t, string a, DateTime d, Status s)
         {
             Title = t;
             Author = a;
             DueDate = d;
-            Status = s;
+            Stat = s;
         }
 
 

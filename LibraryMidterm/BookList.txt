@@ -1,7 +1,7 @@
-﻿Treasure Island,Robert Louis Stevenson,04/28/2015,OnShelf
+Treasure Island,Robert Louis Stevenson,04/28/2015,OnShelf
 In Cold Blood,Truman Capote,05/24/2018,CheckedOut
 The Art of Possibility:Transforming Professional and Personal Life,Benjamin Zander,10/19/2005,OnShelf
-Efficient Algorithms And Optimizations For Scientific Computing On Many-Core Processors,05/09/2018,Kamel Rushaidat,OnShelf
+Efficient Algorithms And Optimizations For Scientific Computing On Many-Core Processors,Kamel Rushaidat,05/09/2018,OnShelf
 How to Win Friends and Influence People,Dale Carnegie,05/28/2018,CheckedOut
 Nineteen Eighty-Four,George Orwell,06/01/2018,CheckedOut
 The Great Gatsby,F. Scott Fitzgerald,01/20/2002,OnShelf
