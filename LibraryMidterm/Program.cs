@@ -39,14 +39,14 @@ namespace LibraryMidterm
                     Console.ForegroundColor = ConsoleColor.White;
                     for (int i = 0; i < number; i++)
                     {
-
-                        Console.WriteLine($"{i+1 + ".       ",12}{Library[i].Title,-28}{Library[i].Author,-28}{Library[i].DueDate.ToShortDateString(),-15}{Library[i].Stat,-10}");
-
+                        Console.WriteLine($"{i + 1 + ".       ",12}{Library[i].Title,-28}{Library[i].Author,-28}{Library[i].DueDate.ToShortDateString(),-15}{Library[i].Stat,-10}");
                     }
+                   
                 }
                 else if (UserTask == 2)
                 {
                     SearchBy.AuthorSearch(Library,"Enter an Author name");  
+                    
                     //2. Search for author - Toni & Jason
                 }
                 else if (UserTask == 3)
@@ -58,20 +58,20 @@ namespace LibraryMidterm
                 else if (UserTask == 4)
                 {
 
-                for (int i = 0; i < number; i++)
-                {
-                    if (Library[i].Stat == Status.OnShelf)
+                    for (int i = 0; i < number; i++)
                     {
-                        Console.WriteLine($"{ i + 1 + ".       ",12}{ Library[i].Title,-28}");
+                        if (Library[i].Stat == Status.OnShelf)
+                        {
+                            Console.WriteLine($"{ i + 1 + ".       ",12}{ Library[i].Title,-28}");
+                        }
                     }
-                }
                     bool ChoooseABook = true;
 
-                    while(ChoooseABook)
+                    while (ChoooseABook)
                     {
                         //4. Select book to check out 
                         int bookSelection = Validation.GetIndex("Which book would you like to check out?", number);
-                        
+
                         //a. Book is not available
                         if (Library[bookSelection].Stat == Status.CheckedOut)
                         {
@@ -87,11 +87,11 @@ namespace LibraryMidterm
                         {
                             Library[bookSelection].Stat = (Status)0;
                             Library[bookSelection].DueDate = DateTime.Today.AddDays(14);
-                            Console.WriteLine($"{Library[bookSelection].Title} is due {Library[bookSelection].DueDate}.");                         
-                       
+                            Console.WriteLine($"{Library[bookSelection].Title} is due {Library[bookSelection].DueDate.ToShortDateString()}.");
+
                             string response = Validation.UserContinue("Would you like to check out another book? y/n");
 
-                            if(response == "n")
+                            if (response == "n")
                             {
                                 Console.WriteLine("Okay!");
                                 ChoooseABook = false;
@@ -110,27 +110,47 @@ namespace LibraryMidterm
                             Console.WriteLine($"{ i + 1 + ".       ",12}{ Library[i].Title,-28}");
                         }
                     }
-                    int bookSelection = Validation.GetIndex("What book do you want to return?", number);
-
-                    Console.WriteLine($"{bookSelection + 1 + ".       ",12}{Library[bookSelection].Title,-28}");
-                    string response = Validation.UserContinue("Would you like to return this book?");
-
-                    ////changes status
-                    if(response == "y")
+                    bool returnABook = true;
+                    while (returnABook)
                     {
-                        Library[bookSelection].Stat = (Status)1;
-                    }
-                    else
-                    {
-                        Library[bookSelection].Stat = (Status)0;
-                    }
+                        int bookSelection = Validation.GetIndex("What book do you want to return?", number);
 
+                        if (Library[bookSelection].Stat == Status.OnShelf)
+                        {
+                            string BookUnavailable = Validation.UserContinue("I'm sorry.  That book is already checked in.  Would you like to choose another book? y/n");
+                            if (BookUnavailable == "n")
+                            {
+                                Console.WriteLine("Ok");
+                                returnABook = false;
+                            }
+                        }
+                        else
+                        {
+
+
+                            Console.WriteLine($"{bookSelection + 1 + ".       ",12}{Library[bookSelection].Title,-28}");
+                            string returnResponse = Validation.UserContinue("Would you like to return this book? y/n");
+                            ////changes status
+                            if (returnResponse == "y")
+                            {
+                                Library[bookSelection].Stat = (Status)1;
+                            }
+                            string response = Validation.UserContinue("Would you like to return another book? y/n");
+
+                            if (response == "n")
+                            {
+                                Console.WriteLine("Okay!");
+                                returnABook = false;
+                            }
+                        }
+
+                    }
                 }
                 else if (UserTask == 6)
 
                 {
 
-                    Library.Add(new Book(Validation.ValidateNewBook("Enter the BooK Title: "), Validation.ValidateNewBook("Enter the Book Author: "),  DateTime.Today, Status.OnShelf));
+                    Library.Add(new Book(Validation.ValidateNewBook("Enter the BooK Title: "), Validation.ValidateNewBook("Enter the Book Author: "), DateTime.Today, Status.OnShelf));
 
                 }
 
