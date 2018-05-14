@@ -27,7 +27,7 @@ namespace LibraryMidterm
 
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                int UserTask = Validation.GetIndex("What would you like to do?", 6)+1;
+                int UserTask = Validation.GetIndex("What would you like to do?", 6) + 1;
                 Console.ForegroundColor = ConsoleColor.White;
 
                 //methods are called under each of these selections
@@ -60,7 +60,7 @@ namespace LibraryMidterm
                 {
                     if (Library[i].Stat == Status.OnShelf)
                     {
-                        Console.WriteLine($"{i + 1}{Library[i].Title}");
+                        Console.WriteLine($"{ i + 1 + ".       ",12}{ Library[i].Title,-28}");
                     }
                 }
                     bool ChoooseABook = true;
@@ -105,12 +105,14 @@ namespace LibraryMidterm
                     {
                         if (Library[i].Stat == Status.CheckedOut)
                         {
-                            Console.WriteLine($"{i + 1}{Library[i].Title}");
+                            Console.WriteLine($"{ i + 1 + ".       ",12}{ Library[i].Title,-28}");
                         }
                     }
                     int bookSelection = Validation.GetIndex("What book do you want to return?", number);
-                    Console.WriteLine($"{bookSelection + 1}  {Library[bookSelection].Title,-15}");
-                    string response = Validation.UserContinue("Would you like to return this book? y'n");
+
+                    Console.WriteLine($"{bookSelection + 1 + ".       ",12}{Library[bookSelection].Title,-28}");
+                    string response = Validation.UserContinue("Would you like to return this book?");
+
                     ////changes status
                     if(response == "y")
                     {
