@@ -27,7 +27,7 @@ namespace LibraryMidterm
 
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                int UserTask = Validation.GetIndex("What would you like to do?", 6) + 1;
+                int UserTask = Validation.GetIndex("\n\tWhat would you like to do? (Please Select Option 1-6)", 6) + 1;
                 Console.ForegroundColor = ConsoleColor.White;
 
                 //methods are called under each of these selections
@@ -156,7 +156,7 @@ namespace LibraryMidterm
 
                 //Loop for continuing
                 Console.ForegroundColor = ConsoleColor.Green;
-                string Response = Validation.UserContinue("\nWould you like to keep browsing the Library? y/n");
+                string Response = Validation.UserContinue("\n\tWould you like to keep browsing the Library? y/n");
                 Console.ForegroundColor = ConsoleColor.White;
                 if (Response == "n")
                 {
