@@ -23,9 +23,11 @@ namespace LibraryMidterm
             {
                 Console.WriteLine($"{"1.",5} {"List books"}\n{"2.",5} {"Search by Author"}\n" +
                     $"{"3.",5} {"Search by title keyword"} \n{"4.",5} {"Select book to check out"}\n" +
-                    $"{"5.",5} {"Return book"}");
+                    $"{"5.",5} {"Return book"}\n{"6.",5} {"Add Book"}");
 
-                int UserTask = Validation.GetIndex("What would you like to do?", 5);
+                int UserTask = Validation.GetIndex("What would you like to do?", 6);
+
+
 
                 //methods are called under each of these selections
                 if (UserTask == 1)
@@ -107,6 +109,13 @@ namespace LibraryMidterm
                     {
                         Library[bookSelection].Stat = (Status)0;
                     }
+
+                }
+                else if (UserTask == 6)
+
+                {
+
+                    Library.Add(new Book(Validation.ValidateNewBook("Enter the BooK Title: "), Validation.ValidateNewBook("Enter the Book Author: "),  DateTime.Today, Status.OnShelf));
 
                 }
 

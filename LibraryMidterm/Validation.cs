@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryMidterm
 {
- 
+
     class Validation
     {
         
@@ -27,12 +27,22 @@ namespace LibraryMidterm
         {
             Console.WriteLine(message);
             int bookReturn = int.Parse(Console.ReadLine());
-            while (bookReturn < 1 || bookReturn > number )
+            while (bookReturn < 1 || bookReturn > number)
             {
                 Console.WriteLine("Invalid Input, " + message);
             }
             return bookReturn - 1;
-                
+
+        }
+        public static string ValidateNewBook(string message)
+
+        {
+
+            Console.Write(message);
+
+            string newBook = Console.ReadLine();
+
+            return newBook;
         }
     }
 }
