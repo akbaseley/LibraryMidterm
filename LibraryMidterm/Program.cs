@@ -39,17 +39,19 @@ namespace LibraryMidterm
                     Console.ForegroundColor = ConsoleColor.White;
                     for (int i = 0; i < number; i++)
                     {
+
                         Console.WriteLine($"{i+1 + ".       ",12}{Library[i].Title,-28}{Library[i].Author,-28}{Library[i].DueDate.ToShortDateString(),-15}{Library[i].Stat,-10}");
+
                     }
                 }
                 else if (UserTask == 2)
                 {
-                    SearchBy.AuthorSearch(Library,"Enter an author name");  
+                    SearchBy.AuthorSearch(Library,"Enter an Author name");  
                     //2. Search for author - Toni & Jason
                 }
                 else if (UserTask == 3)
                 {
-                    SearchBy.TitleSearch(Library, "Enter a titile or title key word");
+                    SearchBy.TitleSearch(Library, "Enter a Title or Title key word");
 
                     //3. Search by the title keyword - Toni & Jason
                 }

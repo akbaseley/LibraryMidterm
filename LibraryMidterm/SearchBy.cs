@@ -18,15 +18,14 @@ namespace LibraryMidterm
                 string LibraryAuthor = Console.ReadLine().ToLower();
                 if (!String.IsNullOrEmpty(LibraryAuthor))
                 {
-                    Library = Library.Where(s => s.Author.ToLower().Contains(LibraryAuthor)).ToList();
-
+                    List<Book> LibraryResult = Library.Where(s => s.Author.ToLower().Contains(LibraryAuthor)).ToList();
                     if (Library.Count > 0)
-                        foreach (Book s in Library)
+                        foreach (Book s in LibraryResult)
                         {
                             Console.WriteLine(s.Title);
-                            break;
+                            
                         }
-                    else if(Library.Count == 0)
+                    else if(LibraryResult.Count == 0)
                         Console.WriteLine("No Author by that name found");
                     break;
                     {
@@ -48,15 +47,14 @@ namespace LibraryMidterm
                 string LibraryAuthor = Console.ReadLine().ToLower();
                 if (!String.IsNullOrEmpty(LibraryAuthor))
                 {
-                    Library = Library.Where(s => s.Title.ToLower().Contains(LibraryAuthor)).ToList();
-
-                    if (Library.Count > 0)
-                        foreach (Book s in Library)
+                    List<Book> LibraryResult = Library.Where(s => s.Title.ToLower().Contains(LibraryAuthor)).ToList();
+                    if (LibraryResult.Count > 0)
+                        foreach (Book s in LibraryResult)
                         {
                             Console.WriteLine(s.Title);
-                            break;
+                            
                         }
-                    else if (Library.Count == 0)
+                    else if (LibraryResult.Count == 0)
                         Console.WriteLine("No Author by that name found");
                     break;
                     {
