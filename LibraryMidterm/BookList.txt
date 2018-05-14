@@ -10,4 +10,4 @@ Fear and Loathing in Las Vegas,Hunter S. Thompson,4/12/2018,OnShelf
 Everybody Poops,Taro Gomi,6/5/2018,CheckedOut
 Hidden Figures,Margot Lee Shetterly,7/2/2017,OnShelf
 Last Train to Paradise,Les Standiford,5/30/2018,CheckedOut
-The Adventures of Tom Sawyer,Mark Twain,5/14/2018,OnShelf
+The Adventures of Tom Sawyer,Mark Twain,5/28/2018,CheckedOut
