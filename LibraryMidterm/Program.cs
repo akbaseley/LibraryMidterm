@@ -23,7 +23,7 @@ namespace LibraryMidterm
             {
                 Console.WriteLine($"{"1.",5} {"List books"}\n{"2.",5} {"Search by Author"}\n" +
                     $"{"3.",5} {"Search by title keyword"} \n{"4.",5} {"Select book to check out"}\n" +
-                    $"{"/5.",5} {"Return book"}");
+                    $"{"5.",5} {"Return book"}");
 
                 int UserTask = Validation.UserSelection("What would you like to do?", 1, 5);
 
@@ -36,8 +36,6 @@ namespace LibraryMidterm
 
                     for (int i = 0; i < number; i++)
                     {
-
- 
                         Console.WriteLine($"{i+1}{Library[i].Title,50} {Library[i].Author,15} {Library[i].DueDate,12} {Library[i].Stat,10}");
                     }
                 }
@@ -73,7 +71,7 @@ namespace LibraryMidterm
                         }
                         else
                         {
-                            Console.WriteLine($"{Library[bookSelection +1]} {Library[bookSelection].Title} {Library[bookSelection].Author}");
+                            Console.WriteLine($"{bookSelection + 1} {Library[bookSelection].Title} {Library[bookSelection].Author}");
                             string CheckOutBook = Validation.UserContinue("Is this the book you would like to check out? y/n");
 
                             if (CheckOutBook == "y")
