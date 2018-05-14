@@ -18,7 +18,7 @@ namespace LibraryMidterm
                 string LibraryAuthor = Console.ReadLine().ToLower();
                 if (!String.IsNullOrEmpty(LibraryAuthor))
                 {
-                    List<Book> LibraryResult = Library.Where(s => s.Title.ToLower().Contains(LibraryAuthor)).ToList();
+                    List<Book> LibraryResult = Library.Where(s => s.Author.ToLower().Contains(LibraryAuthor)).ToList();
                     int number = LibraryResult.Count;
 
                     if (LibraryResult.Count > 0)
@@ -35,7 +35,6 @@ namespace LibraryMidterm
                             Console.WriteLine($"{ i + 1 + ".       ",12}{ LibraryResult[i].Title,-28}");
                         }
                     }
-                    int Usertask = 0;
                     string response = Validation.UserContinue("Would you like to check out a book? y/n");
                     if (response == "n")
                     {
@@ -44,7 +43,7 @@ namespace LibraryMidterm
                     }
                     else if (response == "y")
                     {
-                        Methods.BookCheckOut(List < Book > Library, int number);
+                        Methods.BookCheckOut(List<Book> Library, int number);
                     }
 
                 }
@@ -90,7 +89,7 @@ namespace LibraryMidterm
                     }
                     else if (response == "y")
                     {
-                        Methods.BookCheckOut(List<Book>Library, int number);
+                        Methods.BookCheckOut(List<Book> Library, int number);
                     }
                    
                 }
