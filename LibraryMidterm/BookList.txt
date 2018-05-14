@@ -10,4 +10,3 @@ Fear and Loathing in Las Vegas,Hunter S. Thompson,04/12/2018,OnShelf
 Everybody Poops,Taro Gomi,06/05/2018,CheckedOut
 Hidden Figures,Margot Lee Shetterly,07/02/2017,OnShelf
 Last Train to Paradise,Les Standiford,05/30/2018,CheckedOut
-
