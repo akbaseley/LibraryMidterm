@@ -28,7 +28,7 @@ namespace LibraryMidterm
 
                 Console.ForegroundColor = ConsoleColor.Green;
 
-                int UserTask = Validation.GetIndex("What would you like to do? (Please Select Option 1-6)", 7) + 1;
+                int UserTask = Validation.GetIndex("What would you like to do? (Please Select Option 1-6)", 6) + 1;
 
                 Console.ForegroundColor = ConsoleColor.White;
 
@@ -105,17 +105,13 @@ namespace LibraryMidterm
                                 returnABook = false;
                             }
                         }
-
                     }
                 }
                 else if (UserTask == 6)
                 {
                     Library.Add(new Book(Validation.ValidateNewBook("Enter the BooK Title: "), Validation.ValidateNewBook("Enter the Book Author: "), DateTime.Today, Status.OnShelf));
                 }
-                else if (UserTask == 7)
-                {
 
-                }
                 //Loop for continuing
                 Console.ForegroundColor = ConsoleColor.Green;
                 string Response = Validation.UserContinue("\n\tWould you like to keep browsing the Library? y/n");
