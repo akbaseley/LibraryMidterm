@@ -25,7 +25,8 @@ namespace LibraryMidterm
                     $"{"3.",5} {"Search by title keyword"} \n{"4.",5} {"Select book to check out"}\n" +
                     $"{"5.",5} {"Return book"}\n{"6.",5} {"Add Book"}");
 
-                int UserTask = Validation.GetIndex("What would you like to do?", 6) + 1;
+                int UserTask = Validation.GetIndex("What would you like to do?", 6)+1;
+
 
 
 
@@ -59,7 +60,15 @@ namespace LibraryMidterm
                     while(ChoooseABook)
                     {
                         //4. Select book to check out 
+                        for (int i = 0; i < number; i++)
+                        {
+                            if (Library[i].Stat == Status.OnShelf)
+                            {
+                                Console.WriteLine($"{i + 1}{Library[i].Title}");
+                            }
+                        }
                         int bookSelection = Validation.GetIndex("Which book would you like to check out?", number);
+                        
                         //a. Book is not available
                         if (Library[bookSelection].Stat == Status.CheckedOut)
                         {
@@ -97,6 +106,13 @@ namespace LibraryMidterm
                 else if (UserTask == 5)
                 {
                     ////indexing number user puts in
+                    for (int i = 0; i < number; i++)
+                    {
+                        if (Library[i].Stat == Status.CheckedOut)
+                        {
+                            Console.WriteLine($"{i + 1}{Library[i].Title}");
+                        }
+                    }
                     int bookSelection = Validation.GetIndex("What book do you want to return?", number);
                     Console.WriteLine($"{bookSelection + 1}  {Library[bookSelection].Title,-15}");
                     string response = Validation.UserContinue("Would you like to return this book?");
