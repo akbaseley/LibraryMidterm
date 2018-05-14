@@ -27,7 +27,9 @@ namespace LibraryMidterm
 
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                int UserTask = Validation.GetIndex("\n\tWhat would you like to do? (Please Select Option 1-6)", 6) + 1;
+
+                int UserTask = Validation.GetIndex("What would you like to do? (Please Select Option 1-6)", 7) + 1;
+
                 Console.ForegroundColor = ConsoleColor.White;
 
                 //methods are called under each of these selections
@@ -56,50 +58,10 @@ namespace LibraryMidterm
                     //3. Search by the title keyword - Toni & Jason
                 }
                 else if (UserTask == 4)
-                {
-
-                    for (int i = 0; i < number; i++)
-                    {
-                        if (Library[i].Stat == Status.OnShelf)
-                        {
-                            Console.WriteLine($"{ i + 1 + ".       ",12}{ Library[i].Title,-28}");
-                        }
-                    }
-                    bool ChoooseABook = true;
-
-                    while (ChoooseABook)
-                    {
-                        //4. Select book to check out 
-                        int bookSelection = Validation.GetIndex("Which book would you like to check out?", number);
-
-                        //a. Book is not available
-                        if (Library[bookSelection].Stat == Status.CheckedOut)
-                        {
-                            string BookUnavailable = Validation.UserContinue("I'm sorry.  That book is not available.  Would you like to choose another book? y/n");
-
-                            if (BookUnavailable == "n")
-                            {
-                                Console.WriteLine("Okay!");
-                                ChoooseABook = false;
-                            }
-                        }
-                        else
-                        {
-                            Library[bookSelection].Stat = (Status)0;
-                            Library[bookSelection].DueDate = DateTime.Today.AddDays(14);
-                            Console.WriteLine($"{Library[bookSelection].Title} is due {Library[bookSelection].DueDate.ToShortDateString()}.");
-
-                            string response = Validation.UserContinue("Would you like to check out another book? y/n");
-
-                            if (response == "n")
-                            {
-                                Console.WriteLine("Okay!");
-                                ChoooseABook = false;
-                            }
-                        }
-                    }
-                    //b. change status & set due-date
+                { 
+                    Methods.BookCheckOut(Library, number);
                 }
+
                 else if (UserTask == 5)
                 {
                     ////indexing number user puts in
@@ -147,10 +109,11 @@ namespace LibraryMidterm
                     }
                 }
                 else if (UserTask == 6)
-
                 {
-
-                    Library.Add(new Book(Validation.ValidateNewBook("Enter the BooK Title: "), Validation.ValidateNewBook("Enter the Book Author: "), DateTime.Today, Status.OnShelf));
+                    Library.Add(new Book(Validation.ValidateNewBook("Enter the BooK Title: "), Validation.ValidateNewBook("Enter the Book Author: "),  DateTime.Today, Status.OnShelf));
+                }
+                else if (UserTask == 7)
+                {
 
                 }
 
@@ -166,18 +129,11 @@ namespace LibraryMidterm
                     
                     foreach (Book elements in Library)
                     {
-
                         edit.WriteLine($"{elements.Title},{elements.Author},{elements.DueDate.Date.ToString("d")},{elements.Stat}");
-
                     }
 
                     edit.Close();
-
-
-
                 }
-
-
             }
         }
     }
