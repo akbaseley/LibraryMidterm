@@ -6,7 +6,7 @@ How to Win Friends,Dale Carnegie,5/28/2018,CheckedOut
 Nineteen Eighty-Four,George Orwell,6/1/2018,CheckedOut
 The Great Gatsby,F. Scott Fitzgerald,5/28/2018,CheckedOut
 The Lord of the Rings,J. R. R. Tolkien,2/24/2011,OnShelf
-Fear and Loathing,Hunter S. Thompson,4/12/2018,OnShelf
+Fear and Loathing,Hunter S. Thompson,5/28/2018,CheckedOut
 Everybody Poops,Taro Gomi,6/5/2018,CheckedOut
 Hidden Figures,Margot Lee Shetterly,5/28/2018,CheckedOut
 Last Train to Paradise,Les Standiford,5/30/2018,CheckedOut
