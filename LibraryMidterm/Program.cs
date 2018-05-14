@@ -25,7 +25,7 @@ namespace LibraryMidterm
                     $"{"3.",5} {"Search by title keyword"} \n{"4.",5} {"Select book to check out"}\n" +
                     $"{"5.",5} {"Return book"}");
 
-                int UserTask = Validation.UserSelection("What would you like to do?", 1, 5);
+                int UserTask = Validation.GetIndex("What would you like to do?", 5);
 
                 //methods are called under each of these selections
                 if (UserTask == 1)
@@ -80,10 +80,7 @@ namespace LibraryMidterm
                                 Library[bookSelection].DueDate = DateTime.Today.AddDays(14);
                                 Console.WriteLine($"{Library[bookSelection].Title} is due {Library[bookSelection].DueDate}.");
 
-                                StreamWriter edit = new StreamWriter("../../BookList.txt", true);
-                                edit.WriteLine(Library[bookSelection].DueDate);
-                                edit.WriteLine(Library[bookSelection].Stat);
-                                edit.Close();
+                               
                             }
                             else
                             {
@@ -111,10 +108,6 @@ namespace LibraryMidterm
                         Library[bookSelection].Stat = (Status)0;
                     }
 
-                    StreamWriter edit = new StreamWriter("../../BookList.txt",true);
-                    edit.WriteLine(Library[bookSelection].Stat);
-                    edit.Close();
-
                 }
 
                 //Loop for continuing
@@ -123,7 +116,22 @@ namespace LibraryMidterm
                 {
                     Console.WriteLine("Okay!  See you next time!");
                     KeepGoing = false;
+                    StreamWriter edit = new StreamWriter("../../BookList.txt", false);
+                    
+                    foreach (Book elements in Library)
+                    {
+
+                        edit.WriteLine($"{elements.Title},{elements.Author},{elements.DueDate.Date.ToString("d")},{elements.Stat}");
+
+                    }
+
+                    edit.Close();
+
+
+
                 }
+
+
             }
         }
     }

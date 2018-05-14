@@ -9,18 +9,7 @@ namespace LibraryMidterm
  
     class Validation
     {
-        public static int UserSelection(string message, int min, int max)
-        {
-            Console.WriteLine(message);
-            int select = int.Parse(Console.ReadLine());
-
-            while (select < min || select > max)
-            {
-                Console.WriteLine("I'm' sorry." + "Please enter the number.");
-                select = int.Parse(Console.ReadLine());
-            }
-            return select;
-        }
+        
 
         public static string UserContinue(string message)
         {
