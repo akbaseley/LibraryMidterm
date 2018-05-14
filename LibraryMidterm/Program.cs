@@ -43,12 +43,12 @@ namespace LibraryMidterm
                     {
                         Console.WriteLine($"{i + 1 + ".       ",12}{Library[i].Title,-28}{Library[i].Author,-28}{Library[i].DueDate.ToShortDateString(),-15}{Library[i].Stat,-10}");
                     }
-                   
+
                 }
                 else if (UserTask == 2)
                 {
-                    SearchBy.AuthorSearch(Library,"Enter an Author name");  
-                    
+                    SearchBy.AuthorSearch(Library, "Enter an Author name");
+
                     //2. Search for author - Toni & Jason
                 }
                 else if (UserTask == 3)
@@ -58,7 +58,7 @@ namespace LibraryMidterm
                     //3. Search by the title keyword - Toni & Jason
                 }
                 else if (UserTask == 4)
-                { 
+                {
                     Methods.BookCheckOut(Library, number);
                 }
 
@@ -110,13 +110,12 @@ namespace LibraryMidterm
                 }
                 else if (UserTask == 6)
                 {
-                    Library.Add(new Book(Validation.ValidateNewBook("Enter the BooK Title: "), Validation.ValidateNewBook("Enter the Book Author: "),  DateTime.Today, Status.OnShelf));
+                    Library.Add(new Book(Validation.ValidateNewBook("Enter the BooK Title: "), Validation.ValidateNewBook("Enter the Book Author: "), DateTime.Today, Status.OnShelf));
                 }
                 else if (UserTask == 7)
                 {
 
                 }
-
                 //Loop for continuing
                 Console.ForegroundColor = ConsoleColor.Green;
                 string Response = Validation.UserContinue("\n\tWould you like to keep browsing the Library? y/n");
