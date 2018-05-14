@@ -25,21 +25,21 @@ namespace LibraryMidterm
                     $"{"3.",5} {"Search by title keyword"} \n{"4.",5} {"Select book to check out"}\n" +
                     $"{"5.",5} {"Return book"}\n{"6.",5} {"Add Book"}");
 
+
+                Console.ForegroundColor = ConsoleColor.Green;
                 int UserTask = Validation.GetIndex("What would you like to do?", 6)+1;
-
-
-
+                Console.ForegroundColor = ConsoleColor.White;
 
                 //methods are called under each of these selections
                 if (UserTask == 1)
                 {
                     //1. List Books - Tim & Anna
-
-                    Console.WriteLine($"{"Book No."} {"Title",-50} {"Author",-15} {"Duedate",-12} {"Status",-10}");
-
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"\n{"Book No.",-12}{"Title",-28}{"Author",-28}{"Duedate",-15}{"Status",-10}");
+                    Console.ForegroundColor = ConsoleColor.White;
                     for (int i = 0; i < number; i++)
                     {
-                        Console.WriteLine($"{i+1}{Library[i].Title,50} {Library[i].Author,15} {Library[i].DueDate.ToShortDateString(),12} {Library[i].Stat,10}");
+                        Console.WriteLine($"{i+1 + ".       ",12}{Library[i].Title,-28}{Library[i].Author,-28}{Library[i].DueDate.ToShortDateString(),-15}{Library[i].Stat,-10}");
                     }
                 }
                 else if (UserTask == 2)
@@ -136,7 +136,9 @@ namespace LibraryMidterm
                 }
 
                 //Loop for continuing
-                string Response = Validation.UserContinue("Would you like to keep browsing the Library? y/n");
+                Console.ForegroundColor = ConsoleColor.Green;
+                string Response = Validation.UserContinue("\nWould you like to keep browsing the Library? y/n");
+                Console.ForegroundColor = ConsoleColor.White;
                 if (Response == "n")
                 {
                     Console.WriteLine("Okay!  See you next time!");
