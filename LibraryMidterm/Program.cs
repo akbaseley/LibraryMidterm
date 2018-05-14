@@ -109,7 +109,7 @@ namespace LibraryMidterm
                         Library[bookSelection].Stat = (Status)0;
                     }
 
-                    StreamWriter edit = new StreamWriter("../../BookList.txt");
+                    StreamWriter edit = new StreamWriter("../../BookList.txt",true);
                     edit.WriteLine(Library[bookSelection].Stat);
                     edit.Close();
 
