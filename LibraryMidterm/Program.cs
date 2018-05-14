@@ -48,6 +48,8 @@ namespace LibraryMidterm
                 }
                 else if (UserTask == 3)
                 {
+                    SearchBy.TitleSearch(Library, "Enter a titile or title key word");
+
                     //3. Search by the title keyword - Toni & Jason
                 }
                 else if (UserTask == 4)
