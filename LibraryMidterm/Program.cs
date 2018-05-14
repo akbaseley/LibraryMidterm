@@ -25,7 +25,7 @@ namespace LibraryMidterm
                     $"{"3.",5} {"Search by title keyword"} \n{"4.",5} {"Select book to check out"}\n" +
                     $"{"5.",5} {"Return book"}\n{"6.",5} {"Add Book"}");
 
-                int UserTask = Validation.GetIndex("What would you like to do?", 6);
+                int UserTask = Validation.GetIndex("What would you like to do?", 6) + 1;
 
 
 
