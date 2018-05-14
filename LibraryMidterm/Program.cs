@@ -36,7 +36,7 @@ namespace LibraryMidterm
 
                     for (int i = 0; i < number; i++)
                     {
-                        Console.WriteLine($"{i+1}{Library[i].Title,50} {Library[i].Author,15} {Library[i].DueDate,12} {Library[i].Stat,10}");
+                        Console.WriteLine($"{i+1}{Library[i].Title,50} {Library[i].Author,15} {Library[i].DueDate.ToShortDateString(),12} {Library[i].Stat,10}");
                     }
                 }
                 else if (UserTask == 2)
