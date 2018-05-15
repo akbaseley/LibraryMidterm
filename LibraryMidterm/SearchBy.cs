@@ -43,7 +43,7 @@ namespace LibraryMidterm
                     }
                     else if (response == "y")
                     {
-                        Methods.BookCheckOut(List<Book> Library, int number);
+                        Methods.BookCheckOut(Library, number);
                     }
 
                 }
@@ -85,13 +85,13 @@ namespace LibraryMidterm
                     string response = Validation.UserContinue("Would you like to check out a book? y/n");
                     if (response == "n")
                     {
-                        repeat = false;
+                    repeat = false;
                     }
                     else if (response == "y")
                     {
-                        Methods.BookCheckOut(List < Book > Library, int number);
+                        Methods.BookCheckOut(Library, number);
                     }
-
+                   
                 }
 
                 else
