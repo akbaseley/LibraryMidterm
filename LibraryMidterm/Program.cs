@@ -48,7 +48,7 @@ namespace LibraryMidterm
                 else if (UserTask == 2)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    SearchBy.AuthorSearch(Library, "/tPlease Enter an Authors Name");
+                    SearchBy.AuthorSearch(Library, "\tPlease Enter an Authors Name");
                     Console.ForegroundColor = ConsoleColor.White;
                     //2. Search for author - Toni & Jason
                 }
@@ -95,7 +95,7 @@ namespace LibraryMidterm
 
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine($"{bookSelection + 1 + ".       ",12}{Library[bookSelection].Title,-28}");
-                            string returnResponse = Validation.UserContinue("Would you like to return this book? y/n");
+                            string returnResponse = Validation.UserContinue("\tWould you like to return this book? y/n");
                             ////changes status
                             if (returnResponse == "y")
                             {
@@ -105,7 +105,7 @@ namespace LibraryMidterm
 
                             if (response == "n")
                             {
-                                Console.WriteLine("/n/tOkay!");
+                                Console.WriteLine("\n\tOkay!");
                                 returnABook = false;
                                 Console.ForegroundColor = ConsoleColor.White;
                             }

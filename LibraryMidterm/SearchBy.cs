@@ -91,7 +91,7 @@ namespace LibraryMidterm
                     {
                         Methods.BookCheckOut(Library, number);
                     }
-                   
+                    break;
                 }
 
                 else
