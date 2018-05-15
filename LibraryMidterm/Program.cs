@@ -47,14 +47,16 @@ namespace LibraryMidterm
                 }
                 else if (UserTask == 2)
                 {
-                    SearchBy.AuthorSearch(Library, "Enter an Author name");
-
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    SearchBy.AuthorSearch(Library, "/tPlease Enter an Authors Name");
+                    Console.ForegroundColor = ConsoleColor.White;
                     //2. Search for author - Toni & Jason
                 }
                 else if (UserTask == 3)
                 {
-                    SearchBy.TitleSearch(Library, "Enter a Title or Title key word");
-
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    SearchBy.TitleSearch(Library, "\tPlease Enter a Book Title or Title Key Word");
+                    Console.ForegroundColor = ConsoleColor.White;
                     //3. Search by the title keyword - Toni & Jason
                 }
                 else if (UserTask == 4)
@@ -75,21 +77,23 @@ namespace LibraryMidterm
                     bool returnABook = true;
                     while (returnABook)
                     {
-                        int bookSelection = Validation.GetIndex("What book do you want to return?", number);
-
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        int bookSelection = Validation.GetIndex("\tWhich book do you want to return?", number);
+                        
                         if (Library[bookSelection].Stat == Status.OnShelf)
                         {
                             string BookUnavailable = Validation.UserContinue("I'm sorry.  That book is already checked in.  Would you like to choose another book? y/n");
                             if (BookUnavailable == "n")
                             {
-                                Console.WriteLine("Ok");
+                                Console.WriteLine("\n\tOk");
                                 returnABook = false;
+                                Console.ForegroundColor = ConsoleColor.White;
                             }
                         }
                         else
                         {
 
-
+                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine($"{bookSelection + 1 + ".       ",12}{Library[bookSelection].Title,-28}");
                             string returnResponse = Validation.UserContinue("Would you like to return this book? y/n");
                             ////changes status
@@ -97,19 +101,22 @@ namespace LibraryMidterm
                             {
                                 Library[bookSelection].Stat = (Status)1;
                             }
-                            string response = Validation.UserContinue("Would you like to return another book? y/n");
+                            string response = Validation.UserContinue("\tWould You Like to Return Another Book? y/n");
 
                             if (response == "n")
                             {
-                                Console.WriteLine("Okay!");
+                                Console.WriteLine("/n/tOkay!");
                                 returnABook = false;
+                                Console.ForegroundColor = ConsoleColor.White;
                             }
                         }
                     }
                 }
                 else if (UserTask == 6)
                 {
-                    Library.Add(new Book(Validation.ValidateNewBook("Enter the BooK Title: "), Validation.ValidateNewBook("Enter the Book Author: "), DateTime.Today, Status.OnShelf));
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Library.Add(new Book(Validation.ValidateNewBook("\tPlease Enter the Book Title: "), Validation.ValidateNewBook("Enter the Book Author: "), DateTime.Today, Status.OnShelf));
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
 
                 //Loop for continuing
@@ -118,7 +125,7 @@ namespace LibraryMidterm
                 Console.ForegroundColor = ConsoleColor.White;
                 if (Response == "n")
                 {
-                    Console.WriteLine("Okay!  See you next time!");
+                    Console.WriteLine("\n\tOkay!  See you next time!");
                     KeepGoing = false;
                     StreamWriter edit = new StreamWriter("../../BookList.txt", false);
                     
